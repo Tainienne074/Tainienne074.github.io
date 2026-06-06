@@ -1,0 +1,1623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tainienne Du Plessis — AI-Augmented Systems Architect</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0d0d0d;
+    --ink-soft: #3a3a3a;
+    --ink-muted: #888;
+    --paper: #f7f5f0;
+    --paper-warm: #ede9e0;
+    --paper-card: #ffffff;
+    --accent: #1a1a2e;
+    --accent-2: #c8a96e;
+    --accent-3: #4a7c6f;
+    --accent-hot: #d44d2a;
+    --border: rgba(0,0,0,0.08);
+    --border-strong: rgba(0,0,0,0.15);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Instrument Sans', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 3rem;
+    background: rgba(247,245,240,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 0.5px solid var(--border-strong);
+  }
+
+  .nav-name {
+    font-family: 'DM Mono', monospace;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    color: var(--ink-soft);
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 13px;
+    color: var(--ink-muted);
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--ink); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 5rem 4rem 5rem 3rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent-hot);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .hero-tag::before {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 1px;
+    background: var(--accent-hot);
+  }
+
+  .hero h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(3rem, 5vw, 5.5rem);
+    line-height: 1.0;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.5rem;
+    color: var(--ink);
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--accent-hot);
+  }
+
+  .hero-subtitle {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(1.4rem, 2.5vw, 2.2rem);
+    color: var(--ink-soft);
+    font-weight: 400;
+    margin-bottom: 2rem;
+    line-height: 1.2;
+  }
+
+  .hero-desc {
+    font-size: 15px;
+    color: var(--ink-soft);
+    max-width: 460px;
+    line-height: 1.75;
+    margin-bottom: 3rem;
+  }
+
+  .hero-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 2.5rem;
+  }
+
+  .badge {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    padding: 5px 12px;
+    border-radius: 2px;
+    letter-spacing: 0.06em;
+  }
+
+  .badge-dark { background: var(--ink); color: var(--paper); }
+  .badge-outline { border: 1px solid var(--border-strong); color: var(--ink-soft); }
+  .badge-accent { background: var(--accent-2); color: var(--ink); }
+  .badge-green { background: var(--accent-3); color: #fff; }
+
+  .hero-cta {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    padding: 12px 28px;
+    background: var(--ink);
+    color: var(--paper);
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+  }
+
+  .btn-primary:hover { background: var(--accent-hot); transform: translateY(-1px); }
+
+  .btn-secondary {
+    padding: 12px 28px;
+    background: transparent;
+    color: var(--ink);
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+    border: 1px solid var(--border-strong);
+    transition: border-color 0.2s, color 0.2s;
+  }
+
+  .btn-secondary:hover { border-color: var(--ink); }
+
+  .hero-right {
+    background: var(--accent);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero-right-inner {
+    padding: 4rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .stat-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5px;
+  }
+
+  .stat-cell {
+    background: rgba(255,255,255,0.04);
+    padding: 2rem 1.5rem;
+    position: relative;
+  }
+
+  .stat-cell:hover { background: rgba(255,255,255,0.07); }
+
+  .stat-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 3.5rem;
+    color: #fff;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+
+  .stat-num span {
+    color: var(--accent-2);
+  }
+
+  .stat-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+  }
+
+  .geo-lines {
+    position: absolute;
+    inset: 0;
+    opacity: 0.04;
+    pointer-events: none;
+  }
+
+  /* SECTIONS */
+  section {
+    padding: 7rem 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent-hot);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 0.5px;
+    background: var(--border-strong);
+    max-width: 60px;
+  }
+
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    line-height: 1.15;
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+  }
+
+  .section-intro {
+    font-size: 15px;
+    color: var(--ink-soft);
+    max-width: 600px;
+    line-height: 1.75;
+    margin-bottom: 4rem;
+  }
+
+  /* ABOUT */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  .about-text p {
+    font-size: 15px;
+    line-height: 1.8;
+    color: var(--ink-soft);
+    margin-bottom: 1.2rem;
+  }
+
+  .about-text strong {
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  .philosophy-card {
+    background: var(--accent);
+    padding: 2.5rem;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .philosophy-card::before {
+    content: '"';
+    font-family: 'DM Serif Display', serif;
+    font-size: 8rem;
+    position: absolute;
+    top: -1rem;
+    left: 1rem;
+    color: rgba(255,255,255,0.06);
+    line-height: 1;
+  }
+
+  .philosophy-card blockquote {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.3rem;
+    line-height: 1.5;
+    font-style: italic;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 1.5rem;
+  }
+
+  .philosophy-card cite {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: var(--accent-2);
+    font-style: normal;
+  }
+
+  /* SKILLS */
+  .skills-full { max-width: 1200px; margin: 0 auto; padding: 0 3rem 7rem; }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+
+  .skill-cell {
+    background: var(--paper-card);
+    padding: 1.5rem;
+    transition: background 0.15s;
+  }
+
+  .skill-cell:hover { background: var(--paper-warm); }
+
+  .skill-icon {
+    font-size: 1.2rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .skill-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 0.25rem;
+  }
+
+  .skill-desc {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--ink-muted);
+    letter-spacing: 0.04em;
+  }
+
+  /* EXPERIENCE */
+  .exp-full { max-width: 1200px; margin: 0 auto; padding: 0 3rem 7rem; }
+
+  .exp-item {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 3rem;
+    padding: 3rem 0;
+    border-bottom: 0.5px solid var(--border-strong);
+    animation: fadeUp 0.5s ease both;
+  }
+
+  .exp-item:first-child { border-top: 0.5px solid var(--border-strong); }
+
+  .exp-meta {
+    padding-top: 4px;
+  }
+
+  .exp-period {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--accent-hot);
+    letter-spacing: 0.08em;
+    margin-bottom: 0.5rem;
+  }
+
+  .exp-company {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 0.25rem;
+  }
+
+  .exp-location {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--ink-muted);
+    letter-spacing: 0.06em;
+  }
+
+  .exp-content {}
+
+  .exp-role {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.4rem;
+    color: var(--ink);
+    margin-bottom: 0.75rem;
+    line-height: 1.2;
+  }
+
+  .exp-summary {
+    font-size: 14px;
+    color: var(--ink-soft);
+    line-height: 1.75;
+    margin-bottom: 1.25rem;
+  }
+
+  .exp-bullets {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .exp-bullets li {
+    font-size: 13px;
+    color: var(--ink-soft);
+    padding-left: 1.25rem;
+    position: relative;
+    line-height: 1.6;
+  }
+
+  .exp-bullets li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--accent-2);
+    font-size: 11px;
+    top: 2px;
+  }
+
+  /* CRM PROJECT */
+  .project-full { background: var(--accent); padding: 7rem 3rem; }
+  .project-inner { max-width: 1200px; margin: 0 auto; }
+
+  .project-full .section-label { color: var(--accent-2); }
+  .project-full .section-label::after { background: rgba(200,169,110,0.3); }
+  .project-full .section-title { color: #fff; }
+  .project-full .section-intro { color: rgba(255,255,255,0.6); }
+
+  .project-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    margin-bottom: 4rem;
+    align-items: start;
+  }
+
+  .module-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 1px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .module-cell {
+    background: rgba(255,255,255,0.03);
+    padding: 1.25rem;
+    transition: background 0.15s;
+  }
+
+  .module-cell:hover { background: rgba(255,255,255,0.08); }
+
+  .module-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 0.25rem;
+  }
+
+  .module-detail {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 0.04em;
+    line-height: 1.5;
+  }
+
+  .project-tech-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 2rem;
+  }
+
+  .tech-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    padding: 4px 10px;
+    border: 0.5px solid rgba(255,255,255,0.2);
+    color: rgba(255,255,255,0.6);
+    letter-spacing: 0.06em;
+  }
+
+  /* WORKFLOWS */
+  .workflows-full { max-width: 1200px; margin: 0 auto; padding: 0 3rem 7rem; }
+
+  .client-section { margin-bottom: 4rem; }
+
+  .client-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border-strong);
+  }
+
+  .client-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .client-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.3rem;
+    color: var(--ink);
+  }
+
+  .client-count {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--ink-muted);
+    margin-left: auto;
+  }
+
+  .wf-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1px;
+    background: var(--border);
+  }
+
+  .wf-card {
+    background: var(--paper-card);
+    padding: 1.25rem 1.5rem;
+    transition: background 0.15s, transform 0.1s;
+    cursor: default;
+  }
+
+  .wf-card:hover { background: var(--paper-warm); }
+
+  .wf-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1.4;
+    margin-bottom: 0.5rem;
+  }
+
+  .wf-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .wf-status {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    padding: 2px 8px;
+    letter-spacing: 0.06em;
+  }
+
+  .status-completed { background: #e8f5e9; color: #2e7d32; }
+  .status-in-progress { background: #fff3e0; color: #e65100; }
+  .status-testing { background: #e3f2fd; color: #0d47a1; }
+
+  .wf-nodes {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--ink-muted);
+  }
+
+  /* COVER LETTER */
+  .cover-full { background: var(--paper-warm); padding: 7rem 3rem; }
+  .cover-inner { max-width: 720px; margin: 0 auto; }
+
+  .letter-paper {
+    background: var(--paper-card);
+    padding: 4rem;
+    border: 0.5px solid var(--border-strong);
+    position: relative;
+  }
+
+  .letter-paper::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 3rem;
+    right: 3rem;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent-hot), var(--accent-2), var(--accent-3));
+  }
+
+  .letter-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 0.5px solid var(--border);
+  }
+
+  .letter-from {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--ink-muted);
+    line-height: 1.8;
+    letter-spacing: 0.04em;
+  }
+
+  .letter-date {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--ink-muted);
+    letter-spacing: 0.04em;
+  }
+
+  .letter-body {
+    font-size: 15px;
+    line-height: 1.85;
+    color: var(--ink-soft);
+  }
+
+  .letter-body p { margin-bottom: 1.4rem; }
+
+  .letter-body strong {
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  .letter-sign {
+    margin-top: 2.5rem;
+    padding-top: 2rem;
+    border-top: 0.5px solid var(--border);
+  }
+
+  .letter-sign-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.5rem;
+    font-style: italic;
+    color: var(--ink);
+    margin-bottom: 0.25rem;
+  }
+
+  .letter-sign-title {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--ink-muted);
+    letter-spacing: 0.08em;
+  }
+
+  /* CONTACT */
+  .contact-full { max-width: 1200px; margin: 0 auto; padding: 7rem 3rem; }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .contact-info { display: flex; flex-direction: column; gap: 1rem; }
+
+  .contact-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 0.5px solid var(--border);
+  }
+
+  .contact-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--ink-muted);
+    letter-spacing: 0.08em;
+    width: 80px;
+    flex-shrink: 0;
+  }
+
+  .contact-value {
+    font-size: 14px;
+    color: var(--ink);
+  }
+
+  .setup-steps {
+    background: var(--paper-warm);
+    padding: 2rem;
+    border-left: 3px solid var(--accent-hot);
+  }
+
+  .setup-title {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent-hot);
+    margin-bottom: 1.25rem;
+  }
+
+  .setup-step {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    align-items: flex-start;
+  }
+
+  .step-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--accent-hot);
+    width: 20px;
+    flex-shrink: 0;
+    padding-top: 2px;
+  }
+
+  .step-text {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    color: var(--ink-soft);
+    line-height: 1.6;
+    letter-spacing: 0.03em;
+  }
+
+  .step-text code {
+    background: rgba(0,0,0,0.06);
+    padding: 1px 6px;
+    border-radius: 2px;
+    font-size: 11px;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--ink);
+    padding: 2rem 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .footer-name {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 0.06em;
+  }
+
+  .footer-built {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: rgba(255,255,255,0.25);
+    letter-spacing: 0.06em;
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .hero { grid-template-columns: 1fr; }
+    .hero-right { min-height: 300px; }
+    .hero-left { padding: 3rem 1.5rem; }
+    .hero-right-inner { padding: 2rem; }
+    .stat-grid { grid-template-columns: repeat(4, 1fr); }
+    .stat-num { font-size: 2rem; }
+    section { padding: 4rem 1.5rem; }
+    .about-grid { grid-template-columns: 1fr; }
+    .exp-item { grid-template-columns: 1fr; gap: 1rem; }
+    .project-header { grid-template-columns: 1fr; gap: 2rem; }
+    .contact-grid { grid-template-columns: 1fr; }
+    .letter-paper { padding: 2rem; }
+    .letter-header { flex-direction: column; gap: 1rem; }
+    .skills-full, .exp-full, .workflows-full { padding-left: 1.5rem; padding-right: 1.5rem; }
+    .project-full, .cover-full { padding: 4rem 1.5rem; }
+    .contact-full { padding: 4rem 1.5rem; }
+    footer { padding: 1.5rem; flex-direction: column; gap: 0.5rem; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <span class="nav-name">T. DU PLESSIS</span>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#crm">CRM Project</a></li>
+    <li><a href="#case-studies">Case Studies</a></li>
+    <li><a href="#workflows">Workflows</a></li>
+    <li><a href="#cover-letter">Cover Letter</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" style="padding: 0; max-width: none;">
+  <div class="hero-left">
+    <p class="hero-tag">AI-Augmented Systems Architect</p>
+    <h1>Tainienne<br><em>Du Plessis</em></h1>
+    <p class="hero-subtitle">I design the systems.<br>AI writes the code.</p>
+    <p class="hero-desc">
+      Senior automation architect and backend systems builder. I make architectural decisions, design data models, and direct AI tools like Claude Code to accelerate delivery — without sacrificing depth or quality.
+    </p>
+    <div class="hero-badges">
+      <span class="badge badge-dark">n8n</span>
+      <span class="badge badge-dark">Supabase</span>
+      <span class="badge badge-dark">HubSpot</span>
+      <span class="badge badge-dark">Zoho Recruit</span>
+      <span class="badge badge-accent">AI-Augmented Dev</span>
+      <span class="badge badge-green">Production Systems</span>
+      <span class="badge badge-outline">OAuth2 / JWT</span>
+      <span class="badge badge-outline">REST APIs</span>
+      <span class="badge badge-outline">PostgreSQL / RLS</span>
+    </div>
+    <div class="hero-cta">
+      <a href="#crm" class="btn-primary">View CRM Project</a>
+      <a href="#cover-letter" class="btn-secondary">Cover Letter</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <svg class="geo-lines" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+      <line x1="0" y1="0" x2="600" y2="600" stroke="white" stroke-width="1"/>
+      <line x1="600" y1="0" x2="0" y2="600" stroke="white" stroke-width="1"/>
+      <circle cx="300" cy="300" r="250" fill="none" stroke="white" stroke-width="1"/>
+      <circle cx="300" cy="300" r="150" fill="none" stroke="white" stroke-width="1"/>
+      <circle cx="300" cy="300" r="50" fill="none" stroke="white" stroke-width="1"/>
+      <rect x="100" y="100" width="400" height="400" fill="none" stroke="white" stroke-width="0.5"/>
+    </svg>
+    <div class="hero-right-inner">
+      <div class="stat-grid">
+        <div class="stat-cell">
+          <div class="stat-num">46<span>+</span></div>
+          <div class="stat-label">Live n8n<br>Workflows</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-num">1</div>
+          <div class="stat-label">CRM Platform<br>Built from Scratch</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-num">105</div>
+          <div class="stat-label">CRM Core<br>DB Tables</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-num">4<span>+</span></div>
+          <div class="stat-label">Clients<br>Served</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <p class="section-label fade-in">About</p>
+  <h2 class="section-title fade-in">Systems thinker.<br>AI-augmented builder.</h2>
+  <div class="about-grid fade-in">
+    <div class="about-text">
+      <p>
+        I'm an IT Automation &amp; Systems Architect based in Pretoria, South Africa, operating fully remote across UK, SA and European clients. My work sits at the intersection of <strong>system design, workflow automation, and backend engineering</strong> — with AI tools as force multipliers, not substitutes for thinking.
+      </p>
+      <p>
+        I use Claude Code and other AI tools to accelerate delivery. I read and understand the code they produce. Every architectural decision — the data model, the integration strategy, the security approach — is mine. The AI writes; I architect.
+      </p>
+      <p>
+        Over 5+ years I've progressed from IT support to building production-grade CRM platforms from scratch, running 44+ live automation workflows across multiple clients simultaneously, and architecting backend systems that handle payroll, invoicing, recruitment pipelines, and AI-driven candidate screening at scale.
+      </p>
+      <p>
+        Over time I've taken on increasing ownership — not just of individual workflows, but of the systems they connect, the data models they depend on, and the architectural decisions that make them maintainable long-term.
+      </p>
+    </div>
+    <div class="philosophy-card">
+      <p style="font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.12em; color: var(--accent-2); text-transform: uppercase; margin-bottom: 1.25rem;">Approach</p>
+      <p style="font-size: 14px; color: rgba(255,255,255,0.8); line-height: 1.8; margin-bottom: 1.25rem;">AI tools like Claude Code let me move faster without cutting corners. I direct the implementation, review what comes back, and take full ownership of the result.</p>
+      <p style="font-size: 14px; color: rgba(255,255,255,0.8); line-height: 1.8; margin-bottom: 1.25rem;">The systems I build are maintainable because the decisions behind them are deliberate — not because the code was written quickly.</p>
+      <p style="font-size: 14px; color: rgba(255,255,255,0.65); line-height: 1.8;">My background is non-traditional, and I think that's an asset. I came into this through problem-solving, not a syllabus — and that shows in how I approach every system I work on.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<div class="skills-full">
+  <p class="section-label fade-in">Core Skills</p>
+  <div class="skills-grid fade-in">
+    <div class="skill-cell">
+      <div class="skill-icon">⚡</div>
+      <div class="skill-name">n8n Automation</div>
+      <div class="skill-desc">Production workflows, sub-workflows, error handling, monitoring</div>
+    </div>
+    <div class="skill-cell">
+      <div class="skill-icon">🗄️</div>
+      <div class="skill-name">Supabase / PostgreSQL</div>
+      <div class="skill-desc">Schema design, RLS policies, edge functions, real-time</div>
+    </div>
+    <div class="skill-cell">
+      <div class="skill-icon">🔐</div>
+      <div class="skill-name">OAuth2 / JWT / Service Accounts</div>
+      <div class="skill-desc">Secure auth for automated API access at scale</div>
+    </div>
+    <div class="skill-cell">
+      <div class="skill-icon">🤖</div>
+      <div class="skill-name">AI / LLM Integration</div>
+      <div class="skill-desc">Claude, GPT in production pipelines — screening, scoring, generation</div>
+    </div>
+    <div class="skill-cell">
+      <div class="skill-icon">📞</div>
+      <div class="skill-name">Aircall Integration</div>
+      <div class="skill-desc">Call tracking, transcription processing, HubSpot sync</div>
+    </div>
+    <div class="skill-cell">
+      <div class="skill-icon">🔗</div>
+      <div class="skill-name">HubSpot CRM</div>
+      <div class="skill-desc">Deals, pipelines, task automation, bi-directional sync</div>
+    </div>
+    <div class="skill-cell">
+      <div class="skill-icon">📋</div>
+      <div class="skill-name">Zoho Recruit</div>
+      <div class="skill-desc">Candidate management, job openings, application enrichment</div>
+    </div>
+    <div class="skill-cell">
+      <div class="skill-icon">🧠</div>
+      <div class="skill-name">AI-Augmented Dev</div>
+      <div class="skill-desc">Claude Code, architecture direction, code review and ownership</div>
+    </div>
+    <div class="skill-cell">
+      <div class="skill-icon">📧</div>
+      <div class="skill-name">Gmail API / MIME Parsing</div>
+      <div class="skill-desc">Ingestion, routing, recursive parsing, attachment handling</div>
+    </div>
+    <div class="skill-cell">
+      <div class="skill-icon">🌍</div>
+      <div class="skill-name">Google Workspace</div>
+      <div class="skill-desc">Drive, Sheets, Calendar — API-level integration in workflows</div>
+    </div>
+    <div class="skill-cell">
+      <div class="skill-icon">🚨</div>
+      <div class="skill-name">Monitoring &amp; Alerting</div>
+      <div class="skill-desc">Slack alerts, execution monitoring, error recovery patterns</div>
+    </div>
+    <div class="skill-cell">
+      <div class="skill-icon">📐</div>
+      <div class="skill-name">System Architecture</div>
+      <div class="skill-desc">Data modelling, API design, integration strategy, scalability</div>
+    </div>
+  </div>
+</div>
+
+<!-- EXPERIENCE -->
+<section id="experience" style="padding-bottom: 0;">
+  <p class="section-label fade-in">Experience</p>
+  <h2 class="section-title fade-in">Career progression</h2>
+</section>
+
+<div class="exp-full">
+  <div class="exp-item fade-in">
+    <div class="exp-meta">
+      <div class="exp-period">SEP 2025 — PRESENT</div>
+      <div class="exp-company">Oinio GmbH</div>
+      <div class="exp-location">REMOTE · GERMANY</div>
+    </div>
+    <div class="exp-content">
+      <div class="exp-role">IT Operations &amp; Automation Lead</div>
+      <p class="exp-summary">Lead IT operations and automation across multiple business systems. Architect and deliver production-grade workflow automations, a custom-built recruitment CRM backend, and secure integrations for a distributed remote team — using AI tools to accelerate delivery without compromising on system quality.</p>
+      <ul class="exp-bullets">
+        <li>Architecting and building CRM Core from scratch — a single-tenant recruitment CRM with 105 PostgreSQL tables covering contacts, pipelines, recruitment, payroll, invoicing, document management, reporting, and compliance — with RLS on every table</li>
+        <li>Designing and maintaining 46 live n8n automation workflows across 4 recruitment clients simultaneously, covering AI screening, AI interviewing, CRM integrations, outbound communications, and recruitment ops</li>
+        <li>Built the Trifector AI application enrichment engine — 3 chained Gemini LLM nodes deployed across all 4 clients — reducing recruiter review time from 30 to 10 minutes per application and tripling team capacity from 10–12 to 30–36 roles per month</li>
+        <li>Implemented OAuth2 and manual RSA-SHA256 JWT construction for service account authentication against the Gmail and Google APIs</li>
+        <li>Deliver real-time Slack alerting, error handling and execution monitoring across all production workflows</li>
+        <li>Using Claude Code as an AI-augmented development tool — making all architectural decisions and directing implementation to accelerate delivery</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="exp-item fade-in">
+    <div class="exp-meta">
+      <div class="exp-period">MAY 2024 — SEP 2025</div>
+      <div class="exp-company">Talent Shore Ltd</div>
+      <div class="exp-location">REMOTE · UK</div>
+    </div>
+    <div class="exp-content">
+      <div class="exp-role">IT Support Specialist → IT Operations &amp; Automation Lead</div>
+      <p class="exp-summary">Promoted to lead automation architect in recognition of technical ownership. Built end-to-end automation pipelines serving multiple recruitment and sales clients simultaneously, progressing from IT support to owning the full automation stack across four client systems.</p>
+      <ul class="exp-bullets">
+        <li>Designed and built the Trifector AI application enrichment engine from scratch — 3 chained Gemini LLM nodes processing 100–400 applications per day, reducing recruiter review time by 67% and tripling team capacity to 30–36 roles per month — deployed across all four clients</li>
+        <li>Redesigned the AI prompt logic for the mehg_AI_n outbound calling bot, increasing lead generation from 3–6 per week to 25–32 per week (roughly 5× increase)</li>
+        <li>Developed real-time Aircall↔HubSpot integration processing call transcriptions, AI-driven sales classification, deal stage updates and follow-up scheduling with business-day logic</li>
+        <li>Designed secure Gmail multi-account ingestion system using Google Cloud service accounts, domain-wide delegation, manual RSA-SHA256 JWT construction, and recursive MIME parsing across 11 parallel lanes — shelved due to a business decision, not a technical failure</li>
+        <li>Built AI-powered CV ingestion and parsing pipelines with deduplication and automated ATS record creation</li>
+        <li>Managed hardware procurement, logistics and asset tracking for globally distributed teams</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="exp-item fade-in">
+    <div class="exp-meta">
+      <div class="exp-period">DEC 2020 — APR 2024</div>
+      <div class="exp-company">Teneo Education (Pty) Ltd</div>
+      <div class="exp-location">REMOTE · SOUTH AFRICA</div>
+    </div>
+    <div class="exp-content">
+      <div class="exp-role">International Support Manager</div>
+      <p class="exp-summary">Managed a fully remote international support team, overseeing daily operations, performance tracking, and technical support for Canvas LMS and PowerSchool platforms across multiple regions.</p>
+      <ul class="exp-bullets">
+        <li>Led scheduling, performance tracking and reporting for a distributed international team</li>
+        <li>Provided technical support for Canvas LMS and PowerSchool education platforms</li>
+        <li>Streamlined internal reporting processes to improve operational visibility</li>
+        <li>Led onboarding and training initiatives for new support staff</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="exp-item fade-in">
+    <div class="exp-meta">
+      <div class="exp-period">JUL 2019 — OCT 2020</div>
+      <div class="exp-company">Yohome</div>
+      <div class="exp-location">JOHANNESBURG · SA</div>
+    </div>
+    <div class="exp-content">
+      <div class="exp-role">Junior Architectural Visualiser</div>
+      <p class="exp-summary">Produced high-quality 3D architectural visualisations, collaborating with design teams to translate concepts into production-ready visual assets using 3DS Max and V-Ray.</p>
+      <ul class="exp-bullets">
+        <li>Created production-ready 3D visualisations for client presentations</li>
+        <li>Collaborated with architects and designers to realise spatial concepts</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- CRM PROJECT -->
+<div class="project-full" id="crm">
+  <div class="project-inner">
+    <p class="section-label fade-in">Flagship Project</p>
+    <h2 class="section-title fade-in">CRM Core — Built from Scratch</h2>
+    <p class="section-intro fade-in">
+      A full SaaS recruitment CRM platform designed and architected entirely by me. 105 database tables, Row Level Security throughout, modular recruitment/payroll/invoicing engine, and AI built into the core. Every architectural decision is mine — Claude Code handled implementation.
+    </p>
+
+    <div class="project-header fade-in">
+      <div>
+        <p style="font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.1em; color: rgba(255,255,255,0.4); margin-bottom: 1rem; text-transform: uppercase;">Architecture Overview</p>
+        <p style="font-size: 14px; color: rgba(255,255,255,0.7); line-height: 1.75; margin-bottom: 1.5rem;">
+          Single-tenant recruitment CRM built for a specific client, with the core schema living on the <code>main</code> branch of GitHub and client-specific configurations isolated to dedicated branches. Contacts, companies, deals, pipelines, sequences, forms, lead scoring, AI conversations, team inboxes, and a complete recruitment module covering candidates, jobs, applications, interviews, shift scheduling, timesheets, payroll and invoicing — all in a single coherent Postgres schema with RLS on every table.
+        </p>
+        <div class="project-tech-bar">
+          <span class="tech-tag">SUPABASE</span>
+          <span class="tech-tag">POSTGRESQL 17</span>
+          <span class="tech-tag">ROW LEVEL SECURITY</span>
+          <span class="tech-tag">EDGE FUNCTIONS</span>
+          <span class="tech-tag">SUPABASE AUTH</span>
+          <span class="tech-tag">JSONB</span>
+          <span class="tech-tag">GENERATED COLUMNS</span>
+          <span class="tech-tag">TSVECTOR / FTS</span>
+          <span class="tech-tag">GEOCODING</span>
+          <span class="tech-tag">TOKEN-BASED PUBLIC ACCESS</span>
+        </div>
+      </div>
+      <div>
+        <p style="font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.1em; color: rgba(255,255,255,0.4); margin-bottom: 1rem; text-transform: uppercase;">Key Design Decisions</p>
+        <div style="display: flex; flex-direction: column; gap: 12px;">
+          <div style="border-left: 2px solid rgba(200,169,110,0.5); padding-left: 1rem;">
+            <p style="font-size: 13px; font-weight: 600; color: #fff; margin-bottom: 3px;">RLS on every single table</p>
+            <p style="font-family: 'DM Mono', monospace; font-size: 11px; color: rgba(255,255,255,0.4);">Row-level security enforced at the DB layer, not the app layer — access control is guaranteed regardless of frontend bugs or misconfiguration</p>
+          </div>
+          <div style="border-left: 2px solid rgba(200,169,110,0.5); padding-left: 1rem;">
+            <p style="font-size: 13px; font-weight: 600; color: #fff; margin-bottom: 3px;">Polymorphic association pattern</p>
+            <p style="font-family: 'DM Mono', monospace; font-size: 11px; color: rgba(255,255,255,0.4);">from_type/from_id allows any entity to link to any other — contacts, companies, deals share a single flexible association table</p>
+          </div>
+          <div style="border-left: 2px solid rgba(200,169,110,0.5); padding-left: 1rem;">
+            <p style="font-size: 13px; font-weight: 600; color: #fff; margin-bottom: 3px;">Token-based public access</p>
+            <p style="font-family: 'DM Mono', monospace; font-size: 11px; color: rgba(255,255,255,0.4);">Shift invites, timesheets, AI interviews, client portals — all served securely via signed tokens without exposing auth</p>
+          </div>
+          <div style="border-left: 2px solid rgba(200,169,110,0.5); padding-left: 1rem;">
+            <p style="font-size: 13px; font-weight: 600; color: #fff; margin-bottom: 3px;">GP auto-calculation with generated columns</p>
+            <p style="font-family: 'DM Mono', monospace; font-size: 11px; color: rgba(255,255,255,0.4);">line_total_charge, line_total_pay and gross_profit computed at DB level — always accurate, no app-layer drift</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p style="font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.1em; color: rgba(255,255,255,0.4); margin-bottom: 1.5rem; text-transform: uppercase;" class="fade-in">Schema architecture</p>
+    <div class="fade-in" style="background: rgba(255,255,255,0.04); border: 0.5px solid rgba(255,255,255,0.1); padding: 1.5rem; margin-bottom: 3rem; overflow-x: auto;">
+      <svg width="100%" viewBox="0 0 680 820" role="img" style="max-width: 680px; display: block; margin: 0 auto;">
+        <title>CRM Core database architecture</title>
+        <desc>Structural diagram showing the six module clusters of the CRM Core Supabase schema and how they relate to each other</desc>
+        <defs>
+          <marker id="arr2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </marker>
+        </defs>
+        <!-- Outer container -->
+        <rect x="20" y="20" width="640" height="780" rx="16" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.12)" stroke-width="0.5"/>
+        <text x="40" y="50" font-family="'DM Mono', monospace" font-size="13" font-weight="500" fill="rgba(255,255,255,0.9)">CRM Core — schema architecture</text>
+        <text x="40" y="68" font-family="'DM Mono', monospace" font-size="11" fill="rgba(255,255,255,0.35)">Single-tenant · PostgreSQL 17 · RLS on every table</text>
+        <!-- CRM Core -->
+        <rect x="220" y="90" width="240" height="150" rx="10" fill="rgba(127,119,221,0.15)" stroke="#7F77DD" stroke-width="0.5"/>
+        <text x="340" y="116" text-anchor="middle" font-family="'Instrument Sans', sans-serif" font-size="13" font-weight="600" fill="#AFA9EC">CRM core</text>
+        <text x="340" y="133" text-anchor="middle" font-family="'DM Mono', monospace" font-size="10" fill="rgba(255,255,255,0.5)">contacts · companies · deals</text>
+        <text x="340" y="149" text-anchor="middle" font-family="'DM Mono', monospace" font-size="10" fill="rgba(255,255,255,0.5)">pipelines · activities · tasks</text>
+        <text x="340" y="165" text-anchor="middle" font-family="'DM Mono', monospace" font-size="10" fill="rgba(255,255,255,0.5)">tags · custom fields · lead scoring</text>
+        <text x="340" y="181" text-anchor="middle" font-family="'DM Mono', monospace" font-size="10" fill="rgba(255,255,255,0.5)">sequences · forms · notifications</text>
+        <text x="340" y="197" text-anchor="middle" font-family="'DM Mono', monospace" font-size="10" fill="rgba(255,255,255,0.5)">team inboxes · conversations · AI</text>
+        <!-- Recruitment -->
+        <rect x="40" y="310" width="200" height="130" rx="10" fill="rgba(29,158,117,0.12)" stroke="#1D9E75" stroke-width="0.5"/>
+        <text x="140" y="336" text-anchor="middle" font-family="'Instrument Sans', sans-serif" font-size="13" font-weight="600" fill="#5DCAA5">Recruitment</text>
+        <text x="140" y="353" text-anchor="middle" font-family="'DM Mono', monospace" font-size="10" fill="rgba(255,255,255,0.5)">candidates · jobs</text>
+        <text x="140" y="369" text-anchor="middle" font-family="'DM Mono', monospace" font-size="10" fill="rgba(255,255,255,0.5)">applications · interviews</text>
+        <text x="140" y="385" text-anchor="middle" font-family="'DM Mono', monospace" font-size="10" fill="rgba(255,255,255,0.5)">shift requests · disclaimers</text>
+        <text x="140" y="401" text-anchor="middle" font-family="'DM Mono', monospace" font-size="10" fill="rgba(255,255,255,0.5)">job postings · availability</text>
+        <text x="140" y="417" text-anchor="middle" font-family="'DM Mono', monospace" font-size="10" fill="rgba(255,255,255,0.5)">candidate scheduling</text>
+        <!-- Communications -->
+        <rect x="440" y="310" width="200" height="100" rx="10" fill="rgba(186,117,23,0.12)" stroke="#BA7517" stroke-width="0.5"/>
+        <text x="540" y="336" text-anchor="middle" font-family="'Instrument Sans', sans-serif" font-size="13" font-weight="600" fill="#EF9F27">Communications</text>
+        <text x="540" y="353" text-anchor="middle" font-family="'DM Mono', monospace" font-size="10" fill="rgba(255,255,255,0.5)">email/SMS templates · snippets</text>
+        <text x="540" y="369" text-anchor="middle" font-family="'DM Mono', monospace" font-size="10" fill="rgba(255,255,255,0.5)">attachments · tracked links</text>
+        <text x="540" y="385" text-anchor="middle" font-family="'DM Mono', monospace" font-size="10" fill="rgba(255,255,255,0.5)">email queue · knowledge docs</text>
+        <text x="540" y="401" text-anchor="middle" font-family="'DM Mono', monospace" font-size="10" fill="rgba(255,255,255,0.5)">integration credentials</text>
+        <!-- Payroll -->
+        <rect x="40" y="510" width="200" height="100" rx="10" fill="rgba(216,90,48,0.12)" stroke="#D85A30" stroke-width="0.5"/>
+        <text x="140" y="536" text-anchor="middle" font-family="'Instrument Sans', sans-serif" font-size="13" font-weight="600" fill="#F0997B">Payroll</text>
+        <text x="140" y="553" text-anchor="middle" font-family="'DM Mono', monospace" font-size="10" fill="rgba(255,255,255,0.5)">payroll runs · lines · adjustments</text>
+        <text x="140" y="569" text-anchor="middle" font-family="'DM Mono', monospace" font-size="10" fill="rgba(255,255,255,0.5)">GP approvals · booking lines</text>
+        <text x="140" y="585" text-anchor="middle" font-family="'DM Mono', monospace" font-size="10" fill="rgba(255,255,255,0.5)">timesheets · reminders</text>
+        <text x="140" y="601" text-anchor="middle" font-family="'DM Mono', monospace" font-size="10" fill="rgba(255,255,255,0.5)">generated GP columns</text>
+        <!-- Invoicing -->
+        <rect x="440" y="490" width="200" height="100" rx="10" fill="rgba(55,138,221,0.12)" stroke="#378ADD" stroke-width="0.5"/>
+        <text x="540" y="516" text-anchor="middle" font-family="'Instrument Sans', sans-serif" font-size="13" font-weight="600" fill="#85B7EB">Invoicing</text>
+        <text x="540" y="533" text-anchor="middle" font-family="'DM Mono', monospace" font-size="10" fill="rgba(255,255,255,0.5)">invoices · invoice lines</text>
+        <text x="540" y="549" text-anchor="middle" font-family="'DM Mono', monospace" font-size="10" fill="rgba(255,255,255,0.5)">fee structures · VAT</text>
+        <text x="540" y="565" text-anchor="middle" font-family="'DM Mono', monospace" font-size="10" fill="rgba(255,255,255,0.5)">payment reminders</text>
+        <text x="540" y="581" text-anchor="middle" font-family="'DM Mono', monospace" font-size="10" fill="rgba(255,255,255,0.5)">carryover sessions</text>
+        <!-- Security -->
+        <rect x="180" y="660" width="320" height="110" rx="10" fill="rgba(136,135,128,0.1)" stroke="rgba(255,255,255,0.2)" stroke-width="0.5"/>
+        <text x="340" y="686" text-anchor="middle" font-family="'Instrument Sans', sans-serif" font-size="13" font-weight="600" fill="rgba(255,255,255,0.7)">Security &amp; access</text>
+        <text x="340" y="703" text-anchor="middle" font-family="'DM Mono', monospace" font-size="10" fill="rgba(255,255,255,0.5)">profiles · user roles (owner / admin / member / dev)</text>
+        <text x="340" y="719" text-anchor="middle" font-family="'DM Mono', monospace" font-size="10" fill="rgba(255,255,255,0.5)">public access tokens · token access log · audit logs</text>
+        <text x="340" y="735" text-anchor="middle" font-family="'DM Mono', monospace" font-size="10" fill="rgba(255,255,255,0.5)">branch settings · field definitions · saved reports</text>
+        <text x="340" y="751" text-anchor="middle" font-family="'DM Mono', monospace" font-size="10" fill="rgba(255,255,255,0.5)">communication settings · calendar connections</text>
+        <!-- Arrows: CRM → Recruitment -->
+        <line x1="260" y1="240" x2="160" y2="310" stroke="#7F77DD" stroke-width="1" fill="none" marker-end="url(#arr2)"/>
+        <!-- Arrows: CRM → Communications -->
+        <line x1="420" y1="240" x2="510" y2="310" stroke="#BA7517" stroke-width="1" fill="none" marker-end="url(#arr2)"/>
+        <!-- Arrows: Recruitment → Payroll -->
+        <line x1="140" y1="440" x2="140" y2="510" stroke="#D85A30" stroke-width="1" fill="none" marker-end="url(#arr2)"/>
+        <!-- Arrows: Recruitment → Invoicing -->
+        <line x1="220" y1="420" x2="460" y2="490" stroke="#378ADD" stroke-width="1" fill="none" marker-end="url(#arr2)"/>
+        <!-- Arrows: Security underpins everything -->
+        <line x1="260" y1="660" x2="160" y2="610" stroke="rgba(255,255,255,0.2)" stroke-width="0.5" fill="none" marker-end="url(#arr2)"/>
+        <line x1="340" y1="660" x2="340" y2="590" stroke="rgba(255,255,255,0.2)" stroke-width="0.5" stroke-dasharray="4 3" fill="none" marker-end="url(#arr2)"/>
+        <line x1="420" y1="660" x2="510" y2="590" stroke="rgba(255,255,255,0.2)" stroke-width="0.5" fill="none" marker-end="url(#arr2)"/>
+      </svg>
+    </div>
+    <p style="font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.1em; color: rgba(255,255,255,0.4); margin-bottom: 1rem; text-transform: uppercase;" class="fade-in">System Modules (105 tables)</p>
+    <div class="module-grid fade-in">
+      <div class="module-cell">
+        <div class="module-name">CRM Core</div>
+        <div class="module-detail">Contacts · Companies · Deals · Pipelines · Activities · Tasks · Tags · Lead scoring · AI conversations</div>
+      </div>
+      <div class="module-cell">
+        <div class="module-name">Communications</div>
+        <div class="module-detail">Team inboxes · Conversations · Email/SMS templates · Snippets · Knowledge docs · Email queue</div>
+      </div>
+      <div class="module-cell">
+        <div class="module-name">Sequences &amp; Forms</div>
+        <div class="module-detail">Multi-step automation · Enrolments · Step execution · Form builder · Submissions</div>
+      </div>
+      <div class="module-cell">
+        <div class="module-name">Recruitment</div>
+        <div class="module-detail">Candidates · Jobs · Applications · Interviews · Shift requests · Booking lines · Fee structures</div>
+      </div>
+      <div class="module-cell">
+        <div class="module-name">Candidate Scheduling</div>
+        <div class="module-detail">Hourly availability grid · Weekly patterns · Day blocks · Travel time cache · Calendar connections</div>
+      </div>
+      <div class="module-cell">
+        <div class="module-name">Payroll Engine</div>
+        <div class="module-detail">Payroll runs · Lines · Adjustments · GP approvals · Timesheets · Carryover sessions</div>
+      </div>
+      <div class="module-cell">
+        <div class="module-name">Invoicing</div>
+        <div class="module-detail">Invoices · Lines · Fee structures · Payment reminders</div>
+      </div>
+      <div class="module-cell">
+        <div class="module-name">Document Management</div>
+        <div class="module-detail">Templates · Dispatches · Multi-step intake forms · E-signatures · Verifications · Bulk jobs · Version control</div>
+      </div>
+      <div class="module-cell">
+        <div class="module-name">Reporting Engine</div>
+        <div class="module-detail">Entity &amp; field definitions · Dashboards · Widgets · Saved filters · Run cache</div>
+      </div>
+      <div class="module-cell">
+        <div class="module-name">Compliance</div>
+        <div class="module-detail">Candidate compliance check definitions · Check tracking</div>
+      </div>
+      <div class="module-cell">
+        <div class="module-name">Security &amp; Config</div>
+        <div class="module-detail">RLS on every table · RBAC roles · Public access tokens · Token log · Audit logs · Branch settings</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CASE STUDIES -->
+<section id="case-studies">
+  <p class="section-label fade-in">Case Studies</p>
+  <h2 class="section-title fade-in">Three systems worth explaining properly</h2>
+  <p class="section-intro fade-in">Workflow names mean nothing without context. Here's what was actually built, why, and what changed.</p>
+</section>
+
+<div class="exp-full" style="padding-top: 0;">
+
+  <!-- CASE STUDY 1: TRIFECTOR -->
+  <div class="exp-item fade-in">
+    <div class="exp-meta">
+      <div class="exp-period">CASE STUDY 01</div>
+      <div class="exp-company" style="margin-bottom: 0.75rem;">Trifector — Zoho Application Enrichment</div>
+      <div style="display: flex; flex-direction: column; gap: 6px; margin-bottom: 1rem;">
+        <span class="badge badge-dark" style="font-size: 10px; padding: 3px 8px; display: inline-block;">PRODUCTION</span>
+        <span class="badge badge-green" style="font-size: 10px; padding: 3px 8px; display: inline-block;">4 CLIENTS</span>
+      </div>
+      <div class="exp-location">n8n · Zoho Recruit · Google Drive · Gemini · Supabase</div>
+    </div>
+    <div class="exp-content">
+      <div class="exp-role">From 30 minutes per application to 10</div>
+      <p class="exp-summary">Recruiters across four clients were manually reading every CV and application that came in — up to 400 a day. There was no filtering, no scoring, no summary. A recruiter would open an application, read the CV, cross-reference it against the job description, make a judgement call, update the record, and move the stage. 30 minutes per application. Most of that time was spent on candidates who should never have been seen.</p>
+      <p class="exp-summary" style="margin-top: 0.75rem;">I designed and built a three-stage AI pipeline to sit in front of that process. The workflow triggers on new applications in Zoho Recruit, retrieves the CV from Google Drive, handles file conversion if needed, then passes the document through three chained Gemini LLM nodes — each feeding into the next. The first node extracts and summarises the CV. The second extracts structured information from the application. The third rates the application against the specific job description and generates reasoning for its score.</p>
+      <p class="exp-summary" style="margin-top: 0.75rem;">The workflow writes all of this back to the application record in Zoho — the CV summary, skills extracted, application rating, and the reasoning behind it. It then routes the application to the appropriate stage automatically: the bottom 40% that don't meet the minimum standard never reach a recruiter. The rest land in a reviewed queue with everything a recruiter needs visible in 10 minutes instead of 30.</p>
+      <ul class="exp-bullets" style="margin-top: 1rem;">
+        <li>30 min → 10 min per application review (67% reduction)</li>
+        <li>Bottom 40% of applications filtered before any human review</li>
+        <li>Team capacity: 10–12 roles/month → 30–36 roles/month (3× increase)</li>
+        <li>Deployed across all four clients: Talent Shore, Teach Now, Flexy Support, Remote Choice</li>
+        <li>Three chained LLM nodes — output from each feeds the next before writing back to Zoho</li>
+        <li>Built from scratch in 3 weeks while still learning n8n and the Zoho API</li>
+      </ul>
+      <div style="margin-top: 1.5rem; border: 0.5px solid var(--border-strong); overflow: hidden;">
+        <img src="trifector.png" alt="Trifector workflow screenshot" style="width: 100%; display: block; filter: brightness(1.1);">
+      </div>
+    </div>
+  </div>
+
+  <!-- CASE STUDY 2: MEHG_AI_N -->
+  <div class="exp-item fade-in">
+    <div class="exp-meta">
+      <div class="exp-period">CASE STUDY 02</div>
+      <div class="exp-company" style="margin-bottom: 0.75rem;">mehg_AI_n Bot — AI Outbound Calling</div>
+      <div style="display: flex; flex-direction: column; gap: 6px; margin-bottom: 1rem;">
+        <span class="badge badge-dark" style="font-size: 10px; padding: 3px 8px; display: inline-block;">PRODUCTION</span>
+        <span class="badge badge-outline" style="font-size: 10px; padding: 3px 8px; display: inline-block;">CONTRIBUTION</span>
+      </div>
+      <div class="exp-location">n8n · HeyReach · HubSpot · Gemini · Supabase</div>
+    </div>
+    <div class="exp-content">
+      <div class="exp-role">3–6 leads/week to 25–32 after a prompt redesign</div>
+      <p class="exp-summary">The mehg_AI_n outbound AI calling bot was an existing system when I came to work on it. The infrastructure was in place — HeyReach triggering the workflow, Gemini handling conversation logic, HubSpot receiving the outcomes. The system was running but lead generation was low. I was not responsible for the original build.</p>
+      <p class="exp-summary" style="margin-top: 0.75rem;">What I identified was that the AI message responses were generic — the prompt design wasn't giving the model enough context about who it was talking to or what a qualified response looked like. I redesigned the prompts for the conversation response nodes, giving the model clearer persona framing, better qualification criteria, and more specific instructions for how to handle different response types from leads.</p>
+      <p class="exp-summary" style="margin-top: 0.75rem;">The workflow itself handles a significant amount of branching — different response paths depending on whether a connection is new, whether a conversation is already in progress, deal stage conditions in HubSpot, and various follow-up actions. My change was surgical: the prompt logic, not the plumbing.</p>
+      <ul class="exp-bullets" style="margin-top: 1rem;">
+        <li>Lead generation: 3–6 per week → 25–32 per week (roughly 5× increase)</li>
+        <li>Change was specifically prompt redesign — not a rebuild of the underlying system</li>
+        <li>Deployed across Talent Shore and Remote Choice</li>
+      </ul>
+      <div style="margin-top: 1.5rem; border: 0.5px solid var(--border-strong); overflow: hidden;">
+        <img src="mehg.png" alt="mehg_AI_n workflow screenshot" style="width: 100%; display: block; filter: brightness(1.1);">
+      </div>
+    </div>
+  </div>
+
+  <!-- CASE STUDY 3: GMAIL SYSTEM -->
+  <div class="exp-item fade-in">
+    <div class="exp-meta">
+      <div class="exp-period">CASE STUDY 03</div>
+      <div class="exp-company" style="margin-bottom: 0.75rem;">Gmail Ingestion &amp; Intelligent Routing System</div>
+      <div style="display: flex; flex-direction: column; gap: 6px; margin-bottom: 1rem;">
+        <span class="badge badge-outline" style="font-size: 10px; padding: 3px 8px; display: inline-block;">NOT SHIPPED</span>
+        <span class="badge badge-accent" style="font-size: 10px; padding: 3px 8px; display: inline-block;">TECHNICAL DEPTH</span>
+      </div>
+      <div class="exp-location">n8n · Gmail API · Google Cloud · Service Accounts · OAuth2 / JWT</div>
+    </div>
+    <div class="exp-content">
+      <div class="exp-role">Multi-account email ingestion with AI classification and department routing</div>
+      <p class="exp-summary">The problem was straightforward: client and candidate emails were landing in individual staff inboxes and getting missed. There was no central visibility, no routing, no way to ensure the right team saw the right message. The goal was to ingest emails from multiple staff accounts and forward them to the appropriate team inbox automatically — without requiring staff to change how they worked.</p>
+      <p class="exp-summary" style="margin-top: 0.75rem;">The technical constraint was the interesting part. Google's standard OAuth2 flow requires each user to individually authorise access. For 11+ staff accounts, that's not practical in an automated system. The solution was Google Workspace domain-wide delegation — a Google Cloud service account granted authority to impersonate any user in the domain. I wrote custom JWT construction code in n8n: building the header and claim set, signing with RSA-SHA256 using the service account private key, exchanging for a short-lived bearer token, then querying each user's inbox as them.</p>
+      <p class="exp-summary" style="margin-top: 0.75rem;">The ingestion workflow runs 11 parallel lanes — one per staff account — each generating its own token, fetching unread emails since the previous run (with a Monday edge case to catch Friday's emails), decoding the Base64 MIME body recursively to handle nested multipart structures, deduplicating, and forwarding to the classification engine. The routing workflow receives each email via webhook, runs AI classification to determine department (IT/Support/HR/Finance/Other), retrieves the correct team signature, constructs a raw RFC 2822 formatted email, sends it via the Gmail API impersonating the original recipient, and marks the source email as read.</p>
+      <p class="exp-summary" style="margin-top: 0.75rem;">This system was not moved to production. The decision was made at a business level — not because the system didn't work. The build demonstrates domain-wide delegation, manual JWT cryptography in a code node, recursive MIME parsing, and a parallel multi-account ingestion pattern that I haven't seen documented anywhere in the n8n community.</p>
+      <ul class="exp-bullets" style="margin-top: 1rem;">
+        <li>11 parallel ingestion lanes, each with independent JWT auth against the Gmail API</li>
+        <li>Manual RSA-SHA256 JWT construction — no OAuth library, built from scratch in a code node</li>
+        <li>Recursive MIME parser handling nested multipart email structures</li>
+        <li>AI classification routing to IT / Support / HR / Finance / Other team inboxes</li>
+        <li>Monday edge case logic to catch emails from the weekend</li>
+        <li>Not shipped due to a business decision, not a technical one</li>
+      </ul>
+      <div style="margin-top: 1.5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border);">
+        <div style="overflow: hidden; border: 0.5px solid var(--border-strong);">
+          <img src="gmail-ingestion.png" alt="Gmail ingestion workflow" style="width: 100%; display: block; filter: brightness(1.1);">
+        </div>
+        <div style="overflow: hidden; border: 0.5px solid var(--border-strong);">
+          <img src="gmail-routing.png" alt="Gmail routing and classification workflow" style="width: 100%; display: block; filter: brightness(1.1);">
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- WORKFLOWS -->
+<section id="workflows" style="padding-bottom: 0;">
+  <p class="section-label fade-in">Automation Portfolio</p>
+  <h2 class="section-title fade-in">46 live workflows across 6 functional areas</h2>
+  <p class="section-intro fade-in">All published. All running in production. Grouped by function — no client names.</p>
+</section>
+
+<div class="workflows-full">
+
+  <!-- TRIFECTOR HIGHLIGHT -->
+  <div class="client-section fade-in" style="margin-bottom: 3rem;">
+    <div style="background: var(--accent); padding: 2rem 2.5rem; display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 2rem;">
+      <div>
+        <p style="font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.12em; color: var(--accent-2); text-transform: uppercase; margin-bottom: 0.5rem;">Flagship Automation System</p>
+        <p style="font-family: 'DM Serif Display', serif; font-size: 1.4rem; color: #fff; margin-bottom: 0.5rem;">Trifector — AI Application Enrichment Engine</p>
+        <p style="font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.6; max-width: 600px;">Multi-branch candidate enrichment pipeline architected and deployed across all four client systems. Integrates ATS, Google Drive and AI document analysis to automate candidate scoring, CV parsing, and application status updates in real time.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px; flex-shrink: 0;">
+        <span style="font-family: 'DM Mono', monospace; font-size: 10px; padding: 4px 12px; border: 0.5px solid rgba(200,169,110,0.4); color: var(--accent-2); letter-spacing: 0.06em; white-space: nowrap;">RECRUITMENT CLIENT A</span>
+        <span style="font-family: 'DM Mono', monospace; font-size: 10px; padding: 4px 12px; border: 0.5px solid rgba(74,124,111,0.4); color: #7abfb2; letter-spacing: 0.06em; white-space: nowrap;">RECRUITMENT CLIENT B</span>
+        <span style="font-family: 'DM Mono', monospace; font-size: 10px; padding: 4px 12px; border: 0.5px solid rgba(200,169,110,0.4); color: var(--accent-2); letter-spacing: 0.06em; white-space: nowrap;">RECRUITMENT CLIENT C</span>
+        <span style="font-family: 'DM Mono', monospace; font-size: 10px; padding: 4px 12px; border: 0.5px solid rgba(255,255,255,0.2); color: rgba(255,255,255,0.5); letter-spacing: 0.06em; white-space: nowrap;">RECRUITMENT CLIENT D</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- AI SCREENING -->
+  <div class="client-section fade-in">
+    <div class="client-header">
+      <div class="client-dot" style="background: #7f77dd;"></div>
+      <span class="client-name">AI screening &amp; candidate enrichment</span>
+      <span class="client-count">8 workflows</span>
+    </div>
+    <div class="wf-grid">
+      <div class="wf-card"><div class="wf-name">AI application enrichment</div><div class="wf-meta"><span class="wf-status status-completed">Production</span></div></div>
+      <div class="wf-card"><div class="wf-name">AI application enrichment</div><div class="wf-meta"><span class="wf-status status-completed">Production</span></div></div>
+      <div class="wf-card"><div class="wf-name">AI application enrichment</div><div class="wf-meta"><span class="wf-status status-completed">Production</span></div></div>
+      <div class="wf-card"><div class="wf-name">AI application enrichment</div><div class="wf-meta"><span class="wf-status status-completed">Production</span></div></div>
+      <div class="wf-card"><div class="wf-name">AI screening — rejected candidate update</div><div class="wf-meta"><span class="wf-status status-completed">Production</span></div></div>
+      <div class="wf-card"><div class="wf-name">AI screening — rejected candidate update</div><div class="wf-meta"><span class="wf-status status-completed">Production</span></div></div>
+      <div class="wf-card"><div class="wf-name">AI screening — rejected candidate update</div><div class="wf-meta"><span class="wf-status status-completed">Production</span></div></div>
+      <div class="wf-card"><div class="wf-name">AI screening — approved candidate update</div><div class="wf-meta"><span class="wf-status status-completed">Production</span></div></div>
+    </div>
+  </div>
+
+  <!-- AI INTERVIEWING -->
+  <div class="client-section fade-in">
+    <div class="client-header">
+      <div class="client-dot" style="background: #4a7c6f;"></div>
+      <span class="client-name">AI interviewing</span>
+      <span class="client-count">7 workflows</span>
+    </div>
+    <div class="wf-grid">
+      <div class="wf-card"><div class="wf-name">AI interview — trigger &amp; setup</div><div class="wf-meta"><span class="wf-status status-completed">Production</span></div></div>
+      <div class="wf-card"><div class="wf-name">AI interview — completion handler</div><div class="wf-meta"><span class="wf-status status-completed">Production</span></div></div>
+      <div class="wf-card"><div class="wf-name">AI interview — completion handler</div><div class="wf-meta"><span class="wf-status status-completed">Production</span></div></div>
+      <div class="wf-card"><div class="wf-name">Interview invitation link generation</div><div class="wf-meta"><span class="wf-status status-completed">Production</span></div></div>
+      <div class="wf-card"><div class="wf-name">Interview invitation link generation</div><div class="wf-meta"><span class="wf-status status-completed">Production</span></div></div>
+      <div class="wf-card"><div class="wf-name">Interview invitation link generation</div><div class="wf-meta"><span class="wf-status status-completed">Production</span></div></div>
+      <div class="wf-card"><div class="wf-name">Interview question link generation</div><div class="wf-meta"><span class="wf-status status-completed">Production</span></div></div>
+    </div>
+  </div>
+
+  <!-- CANDIDATE MANAGEMENT -->
+  <div class="client-section fade-in">
+    <div class="client-header">
+      <div class="client-dot" style="background: #c8a96e;"></div>
+      <span class="client-name">Candidate management</span>
+      <span class="client-count">9 workflows</span>
+    </div>
+    <div class="wf-grid">
+      <div class="wf-card"><div class="wf-name">CV source watchdog — new application processing</div><div class="wf-meta"><span class="wf-status status-completed">Production</span></div></div>
+      <div class="wf-card"><div class="wf-name">Candidate profile generation</div><div class="wf-meta"><span class="wf-status status-completed">Production</span></div></div>
+      <div class="wf-card"><div class="wf-name">Proactive candidate shortlisting</div><div class="wf-meta"><span class="wf-status status-completed">Production</span></div></div>
+      <div class="wf-card"><div class="wf-name">Shortlisted view update</div><div class="wf-meta"><span class="wf-status status-completed">Production</span></div></div>
+      <div class="wf-card"><div class="wf-name">Shortlisted view update</div><div class="wf-meta"><span class="wf-status status-completed">Production</span></div></div>
+      <div class="wf-card"><div class="wf-name">Candidate spreadsheet sync</div><div class="wf-meta"><span class="wf-status status-completed">Production</span></div></div>
+      <div class="wf-card"><div class="wf-name">Candidate status sync — ATS</div><div class="wf-meta"><span class="wf-status status-completed">Production</span></div></div>
+      <div class="wf-card"><div class="wf-name">Candidate status sync — ATS</div><div class="wf-meta"><span class="wf-status status-completed">Production</span></div></div>
+      <div class="wf-card"><div class="wf-name">Learner record updates</div><div class="wf-meta"><span class="wf-status status-completed">Production</span></div></div>
+    </div>
+  </div>
+
+  <!-- CRM & PIPELINE -->
+  <div class="client-section fade-in">
+    <div class="client-header">
+      <div class="client-dot" style="background: #d44d2a;"></div>
+      <span class="client-name">CRM &amp; pipeline integrations</span>
+      <span class="client-count">8 workflows</span>
+    </div>
+    <div class="wf-grid">
+      <div class="wf-card"><div class="wf-name">Aircall↔HubSpot integration</div><div class="wf-meta"><span class="wf-status status-completed">Production</span></div></div>
+      <div class="wf-card"><div class="wf-name">Aircall↔HubSpot integration</div><div class="wf-meta"><span class="wf-status status-completed">Production</span></div></div>
+      <div class="wf-card"><div class="wf-name">Aircall↔HubSpot task generation</div><div class="wf-meta"><span class="wf-status status-completed">Production</span></div></div>
+      <div class="wf-card"><div class="wf-name">HubSpot↔ATS bi-directional sync</div><div class="wf-meta"><span class="wf-status status-completed">Production</span></div></div>
+      <div class="wf-card"><div class="wf-name">HubSpot↔ATS bi-directional sync</div><div class="wf-meta"><span class="wf-status status-completed">Production</span></div></div>
+      <div class="wf-card"><div class="wf-name">CRM working status update — main workflow</div><div class="wf-meta"><span class="wf-status status-completed">Production</span></div></div>
+      <div class="wf-card"><div class="wf-name">ATS record ID sync — main workflow</div><div class="wf-meta"><span class="wf-status status-completed">Production</span></div></div>
+      <div class="wf-card"><div class="wf-name">ATS record ID sync — sub-workflow</div><div class="wf-meta"><span class="wf-status status-completed">Production</span></div></div>
+    </div>
+  </div>
+
+  <!-- OUTBOUND & COMMS -->
+  <div class="client-section fade-in">
+    <div class="client-header">
+      <div class="client-dot" style="background: #1a1a2e;"></div>
+      <span class="client-name">Outbound &amp; communications</span>
+      <span class="client-count">7 workflows</span>
+    </div>
+    <div class="wf-grid">
+      <div class="wf-card"><div class="wf-name">AI outbound calling bot</div><div class="wf-meta"><span class="wf-status status-completed">Production</span></div></div>
+      <div class="wf-card"><div class="wf-name">AI outbound calling bot</div><div class="wf-meta"><span class="wf-status status-completed">Production</span></div></div>
+      <div class="wf-card"><div class="wf-name">Warm lead draft email generation</div><div class="wf-meta"><span class="wf-status status-completed">Production</span></div></div>
+      <div class="wf-card"><div class="wf-name">Warm lead tracking sheet</div><div class="wf-meta"><span class="wf-status status-completed">Production</span></div></div>
+      <div class="wf-card"><div class="wf-name">Rejection email automation</div><div class="wf-meta"><span class="wf-status status-completed">Production</span></div></div>
+      <div class="wf-card"><div class="wf-name">Call transcript extraction &amp; recording link</div><div class="wf-meta"><span class="wf-status status-completed">Production</span></div></div>
+      <div class="wf-card"><div class="wf-name">Chase email draft generation</div><div class="wf-meta"><span class="wf-status status-completed">Production</span></div></div>
+    </div>
+  </div>
+
+  <!-- RECRUITMENT OPS -->
+  <div class="client-section fade-in">
+    <div class="client-header">
+      <div class="client-dot" style="background: #378add;"></div>
+      <span class="client-name">Recruitment ops &amp; admin</span>
+      <span class="client-count">7 workflows</span>
+    </div>
+    <div class="wf-grid">
+      <div class="wf-card"><div class="wf-name">Awaiting approval — agency placement</div><div class="wf-meta"><span class="wf-status status-completed">Production</span></div></div>
+      <div class="wf-card"><div class="wf-name">Awaiting approval — perm placement</div><div class="wf-meta"><span class="wf-status status-completed">Production</span></div></div>
+      <div class="wf-card"><div class="wf-name">Awaiting approval — perm &amp; agency (manual)</div><div class="wf-meta"><span class="wf-status status-completed">Production</span></div></div>
+      <div class="wf-card"><div class="wf-name">Awaiting approval — email notification</div><div class="wf-meta"><span class="wf-status status-completed">Production</span></div></div>
+      <div class="wf-card"><div class="wf-name">Approved candidate — admin process</div><div class="wf-meta"><span class="wf-status status-completed">Production</span></div></div>
+      <div class="wf-card"><div class="wf-name">Draft email generation — admin process</div><div class="wf-meta"><span class="wf-status status-completed">Production</span></div></div>
+      <div class="wf-card"><div class="wf-name">Placement consultant list update</div><div class="wf-meta"><span class="wf-status status-completed">Production</span></div></div>
+    </div>
+  </div>
+
+
+<!-- COVER LETTER -->
+<div class="cover-full" id="cover-letter">
+  <div class="cover-inner">
+    <p class="section-label fade-in" style="margin-bottom: 2rem;">Cover Letter</p>
+    <div class="letter-paper fade-in">
+      <div class="letter-header">
+        <div class="letter-from">
+          Tainienne Du Plessis<br>
+          Pretoria, South Africa<br>
+          Available Remotely · Worldwide
+        </div>
+        <div class="letter-date">May 2026</div>
+      </div>
+      <div class="letter-body">
+        <p>To the Hiring Team,</p>
+        <p>
+          I want to be upfront about something that might seem unusual: <strong>I use AI to write code.</strong> I want to explain what that actually means, because it is the most important thing to understand about how I work.
+        </p>
+        <p>
+          I am an <strong>AI-augmented developer</strong>. I make the architectural decisions — the data model, the integration strategy, the security design, the system boundaries. I use tools like Claude Code to implement those decisions faster than I could alone. I read and understand every line that comes back, and I take full ownership of the output.
+        </p>
+        <p>
+          The evidence is in this portfolio. I have built a <strong>full SaaS recruitment CRM from scratch</strong> — 105 Supabase tables with RLS on every one, covering contacts, companies, deals, recruitment pipelines, payroll, invoicing, AI interviews, geolocation, token-based public access, and a complete communication layer. That schema architecture is mine. Those design decisions are mine.
+        </p>
+        <p>
+          Alongside the CRM, I have <strong>46 live n8n workflows running in production</strong> across four clients simultaneously — Talent Shore, Teach Now, Flexy Support and Remote Choice. These include AI-powered CV screening pipelines, outbound AI calling bots (mehg_AI_n V4–V7 with HeyReach), real-time Aircall↔HubSpot integrations with AI-driven sales classification, and a multi-branch candidate enrichment engine I architected called Trifector. I maintain, monitor and evolve all of these systems.
+        </p>
+        <p>
+          I sit across <strong>one carefully architected CRM Core platform</strong> — built as a single-tenant system with a branch-per-client deployment model on GitHub. The core schema is the foundation; client-specific behaviour lives in branches. It's designed to scale without the complexity of multi-tenancy.
+        </p>
+        <p>
+          My background is not traditional. I started in 3D architectural visualisation, moved into international education operations, and grew into automation engineering without a formal CS degree. What I have instead is <strong>five years of building things that work in production</strong>, at scale, for real organisations. I was promoted to IT Operations & Automation Lead without asking for it — because the systems spoke for themselves.
+        </p>
+        <p>
+          I work remote. I work async. I deliver.
+        </p>
+        <p>I look forward to discussing what we could build together.</p>
+      </div>
+      <div class="letter-sign">
+        <div class="letter-sign-name">Tainienne Du Plessis</div>
+        <div class="letter-sign-title">IT AUTOMATION & SYSTEMS ARCHITECT · PRETORIA, SA</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT + GITHUB SETUP -->
+<div class="contact-full" id="contact">
+  <p class="section-label fade-in">Contact &amp; Deploy</p>
+  <h2 class="section-title fade-in">Get in touch + publish this to GitHub</h2>
+  <div class="contact-grid fade-in">
+    <div class="contact-info">
+      <div class="contact-row">
+        <span class="contact-label">LOCATION</span>
+        <span class="contact-value">Pretoria, South Africa</span>
+      </div>
+      <div class="contact-row">
+        <span class="contact-label">WORK</span>
+        <span class="contact-value">Remote · Worldwide</span>
+      </div>
+      <div class="contact-row">
+        <span class="contact-label">EMAIL</span>
+        <span class="contact-value">tainienne.2014@gmail.com</span>
+      </div>
+      <div class="contact-row">
+        <span class="contact-label">LINKEDIN</span>
+        <span class="contact-value"><a href="https://www.linkedin.com/in/tainienne-du-plessis-a6b9a834b" target="_blank" style="color: var(--ink); text-decoration: underline; text-underline-offset: 3px;">linkedin.com/in/tainienne-du-plessis-a6b9a834b</a></span>
+      </div>
+      <div class="contact-row">
+        <span class="contact-label">GITHUB</span>
+        <span class="contact-value">Tainienne074.github.io</span>
+      </div>
+    </div>
+    <div class="setup-steps">
+      <p class="setup-title">Deploy to GitHub Pages — 5 steps</p>
+      <div class="setup-step">
+        <span class="step-num">01</span>
+        <span class="step-text">Create a new GitHub repo named exactly <code>[username].github.io</code></span>
+      </div>
+      <div class="setup-step">
+        <span class="step-num">02</span>
+        <span class="step-text">Upload this <code>index.html</code> file to the root of that repo</span>
+      </div>
+      <div class="setup-step">
+        <span class="step-num">03</span>
+        <span class="step-text">Go to Settings → Pages → Source: Deploy from branch → main → / (root)</span>
+      </div>
+      <div class="setup-step">
+        <span class="step-num">04</span>
+        <span class="step-text">Wait ~60 seconds. Your portfolio is live at <code>[username].github.io</code></span>
+      </div>
+      <div class="setup-step">
+        <span class="step-num">05</span>
+        <span class="step-text">Update your email, LinkedIn and GitHub username in the contact section above before uploading</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <span class="footer-name">TAINIENNE DU PLESSIS · IT AUTOMATION & SYSTEMS ARCHITECT</span>
+  <span class="footer-built">Built with real data · Powered by connectors</span>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.08 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
